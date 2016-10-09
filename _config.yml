@@ -1,0 +1,9 @@
+title: Lizards & Pumpkins
+first_published: 2016
+baseurl: ""
+url: "https://lizardsandpumpkins.com"
+social:
+  twitter: https://twitter.com/lizardspumpkins
+  github: https://github.com/lizards-and-pumpkins
+  facebook-official: https://www.facebook.com/lizards.and.pumpkins
+markdown: kramdown
