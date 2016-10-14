@@ -1013,6 +1013,8 @@ $baseurl: '{{ site.baseurl }}/images';
 
 			.image {
 				width: 100%;
+				max-height: 450px;
+                overflow: hidden;
 			}
 
 			.content {
@@ -1024,6 +1026,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		@include breakpoint(small) {
+            .image {
+                max-height: 250px;
+            }
+
 			.content {
 				@include padding(3em, 2em);
 			}
