@@ -14,10 +14,22 @@ layout: landing
 <section id="one" class="wrapper style1 special">
     <div class="inner">
         <header class="major">
-            <h2>A Piece of Software Without Compromises<br/>for Professionals</h2>
+            <h2>Project Goals</h2>
             <p>Lizards &amp; Pumpkins is built by professionals working in e-commerce. Being unsatisfied with<br/>
                 existing software we came down with our own online catalog implementation addressing the problems of<br />
-                other solutions at the market, namely performance and catalog inconsistencies.</p>
+                other solutions at the market, namely performance, scalability and catalog inconsistencies.</p>
+            <ul>
+                <li><strong>Consistent catalog</strong><br/>
+                    because it utilizes NO caching or indexing!</li>
+                <li><strong>Performance</strong><br/>
+                    through server response time measuring only milliseconds.</li>
+                <li><strong>Cost-effective scalability</strong><br/>
+                    Most e-commerce platforms are expensive to scale due to diminishing returns.<br/>
+                    With Lizards &amp; Pumpkins, a single, simple server is already able to handle a large
+                    amount of visitors.<br/>
+                    And adding a server will always scale up the same amount as the previous one.
+                </li>
+            </ul>
         </header>
         <p>Learn more about Lizards &amp; Pumpkins benefits for:</p>
         <ul class="actions">
@@ -32,31 +44,63 @@ layout: landing
     <section class="spotlight" id="for-merchants">
         <div class="image"><img src="images/pic01.jpg" alt=""/></div>
         <div class="content">
-            <h2>Catalog Without Trade-offs</h2>
-            <p>Merchants have to make a hard decision between performance and consistency. The online shop
-                catalog can be either fast or contain up to date stocks, prices and other product data.</p>
-            <p>Lizards &amp; Pumpkins resolves this trade-off by making all product changes instant, still delivering pages
-                at a blazing speed.</p>
+            <h2>Immediate catalog updates</h2>
+            <p>Lizards &amp; Pumpkins makes individual product changes (almost) instantaneous
+                and bulk imports can be scaled up as needed depending on the catalog size.
+                All the while pages still are being delivered at a blazing speed.</p>
+            <h2>Calculable scalability</h2>
+            <p>Due to Lizards &amp; Pumpkins linear scalability it is easy to work out how much
+                power the servers need to be assigned to handle a given number of expected visitors.<br/>
+                No more overpowered hardware idling around, no more traffic spikes slowing response times.<br/>
+                Additionally, the platform makes good use of the hardware, which means smaller servers can serve more customers.</p>
+            <h2>Integrate any third party system</h2>
+            <p>Lizards &amp; Pumpkins supplies no PIM or CRM or other backoffice capabilities.
+                Instead of building these into the product, our goal is to make integrating third party systems as 
+                simple as possible.<br/>
+                We follow the philosophy that a tool should do one thing well, rather than doing many things
+                badly.</p>
+            <p></p>
         </div>
     </section>
     <section class="spotlight" id="for-developers">
         <div class="image"><img src="images/pic02.jpg" alt=""/></div>
         <div class="content">
-            <h2>Codebase Developers Won't Hate</h2>
-            <p>Every line of code is written with a developer in mind. 
-                Every line of code is open-sourced. 
-                Every line of code is test driven. 
-                Flexible technology stack, no dependencies on 3rd party frameworks, 
-                readable code and a developer VM will make Lizards &amp; Pumpkins fun to work with.</p>
+            <h2>Clean Code</h2>
+            <p>All developers working on Lizards &amp; Pumpkins have read (and agreed with) the principles of clean code,
+                as presented by Robert C. (a.k.a. Uncle Bob) Martin in his classic book <a
+                        href="http://www.goodreads.com/book/show/3735293-clean-code">"Clean Code"</a>. Every line of
+                code is open-source. Every line of code is test driven. Every line of code has been reviewed before it
+                was merged into the product. A flexible technology stack and no dependencies on 3rd party
+                frameworks help keep technical dept in check and make Lizards &amp; Pumpkins easy to adjust to a merchants
+                unique requirements.</p>
+            <h2>Developer VM</h2>
+            <p>A vagrant based developer VM is <a href="https://github.com/lizards-and-pumpkins/dev-vm">available on
+                github</a>.
+                It contains a pre-configured environment of Lizards &amp; Pumpkins ready for you to start exploring.
+                All non-catalog features (for example the shopping basket and checkout) are provided by a Magento (1.x) CE
+                installation with sample data.</p>
+            <h2>API first</h2>
+            <p>Lizards &amp; Pumpkins doesn't care if the catalog is delivered as HTML or as JSON (or XML or anything else).
+                This can be utilized to build an API first or API only catalog. This allows the shop frontend to be
+                developed as an independent application, decoupled from the server-side application.<br/>
+                However, it is also possible to render the complete catalog server side as a website that does not require JavaScript.</p>
+            <h2>Made for custom applications</h2>
+            <p>Lizards &amp; Pumpkins provides a basic pre-rendering and content delivery platform, on which any given store
+                can be implemented.
+                Our goal is not to provide a turn-key ready solution, but rather a strong foundation for custom built
+                commerce applications.
+                Lizards &amp; Pumpkins handles the preparation and delivery of the content.</p>
         </div>
     </section>
     <section class="spotlight" id="for-agencies">
         <div class="image"><img src="images/pic03.jpg" alt=""/></div>
         <div class="content">
             <h2>Pure Partnership</h2>
-            <p>Lizards &amp; Pumpkins is a platform. This means setup and support
-                must be executed by a team of professional developers. We carefully select web agencies
-                as our partners, who we recommend for incoming merchant inquiries.</p>
+            <p>Lizards &amp; Pumpkins is a very young platform which means that in order to utilize it for projects,
+                be prepared to invest development time into it.<br/>
+                On the upside, by knowing Lizards &amp; Pumpkins you can offer unique capabilities to
+                solve your customers problems.<br/>
+                This also allows you to influence the direction of the product as it matures.</p>
         </div>
     </section>
 </section>
@@ -71,18 +115,13 @@ layout: landing
         <ul class="features">
             <li class="icon fa-paper-plane-o">
                 <h3>Speed</h3>
-                <p>The server response time is just a few milliseconds for every catalog page. 
-                    Speed makes customers happy and increases your revenue.</p>
+                <p>Server response times are just few milliseconds for every catalog page. This improves organic search
+                    rankings and visitor satisfaction.</p>
             </li>
             <li class="icon fa-money">
                 <h3>Cost Efficiency</h3>
-                <p>Being completely open-source you are in full control of project costs. No subscription or update
-                    charges!</p>
-            </li>
-            <li class="icon fa-code">
-                <h3>Developer Friendly</h3>
-                <p>Our main goal is to make a platform which is fun to work with. If developers are happy,
-                    everyone is happy.</p>
+                <p>Being completely open-source you are in a full control of project costs. No subscription or update
+                    charges.</p>
             </li>
             <li class="icon fa-expand">
                 <h3>Scalability</h3>
@@ -91,12 +130,12 @@ layout: landing
             </li>
             <li class="icon fa-check-square-o">
                 <h3>Data Consistency</h3>
-                <p>Every product data change whether it is a product name, price or stock level update is
-                    immediately online.</p>
+                <p>Every product data change, whether it is a product name, price or stock level update is
+                    immediately visible online.</p>
             </li>
             <li class="icon fa-lock">
                 <h3>Security</h3>
-                <p>Every line of code is passing two levels of automated testing, human code review and a bunch of
+                <p>Every line of code is passing two levels of automated testing, human code review and multiple
                     security vulnerability analysers.</p>
             </li>
         </ul>
@@ -106,7 +145,7 @@ layout: landing
 <section id="cta" class="wrapper style4">
     <div class="inner">
         <header>
-            <h2>Sounds interesting?<br/>Get in touch!</h2>
+            <h2>Sound interesting?<br/>Get in touch!</h2>
         </header>
         <ul class="actions vertical">
             <li><a href="contact" class="button fit special">Contact Us</a></li>
