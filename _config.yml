@@ -7,3 +7,5 @@ social:
   github: https://github.com/lizards-and-pumpkins
   facebook-official: https://www.facebook.com/lizards.and.pumpkins
 markdown: kramdown
+
+permalink: pretty
