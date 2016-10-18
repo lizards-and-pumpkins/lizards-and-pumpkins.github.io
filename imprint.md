@@ -3,6 +3,7 @@ layout: page
 title: Imprint
 ---
 ### Imprint
+
 #### Informations required by § 5 TMG:
 Lizards & Pumpkins UG (haftungsbeschränkt)<br/>
 Crailsheimer Str. 10<br />
