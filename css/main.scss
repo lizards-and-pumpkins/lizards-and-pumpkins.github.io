@@ -35,6 +35,7 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Basic */
 
 	@-ms-viewport {
+		//noinspection CssInvalidPropertyValue
 		width: device-width;
 	}
 
@@ -345,7 +346,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	input[type="checkbox"],
-	input[type="radio"], {
+	input[type="radio"] {
 		@include vendor('appearance', 'none');
 		display: block;
 		float: left;
@@ -893,6 +894,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		padding: 0;
 		width: 100%;
 
+		&.events {
+			@include vendor('justify-content', 'flex-start');
+		}
+
 		li {
 			@include padding(4em, 4em, (0,0,0,2em));
 			display: block;
@@ -1103,7 +1108,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 
 			input[type="checkbox"],
-			input[type="radio"], {
+			input[type="radio"] {
 				& + label {
 					color: _palette($p, fg);
 
