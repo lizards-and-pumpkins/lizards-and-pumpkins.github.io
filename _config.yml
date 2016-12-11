@@ -8,4 +8,7 @@ social:
   facebook-official: https://www.facebook.com/lizards.and.pumpkins
 markdown: kramdown
 
+gems:
+ - jekyll-feed
+
 permalink: pretty
