@@ -894,7 +894,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		padding: 0;
 		width: 100%;
 
-		&.events {
+		&.events, &.press {
 			@include vendor('justify-content', 'flex-start');
 		}
 
