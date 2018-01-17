@@ -2,8 +2,7 @@
   <ul class="icons">
     {% for socloc in site.social %}
     {% if socloc[1] %}
-    <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }}"
-           ><span class="label">{{ socloc[0] }}</span></a></li>
+    <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }}"><span class="label">{{ socloc[0] }}</span></a></li>
     {% endif %}
     {% endfor %}
   </ul>
