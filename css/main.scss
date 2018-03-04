@@ -218,6 +218,18 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 
+	article {
+		a {
+			&[target=_blank] {
+				&:after {
+					content: "\f08e";
+					font-family: FontAwesome, sans-serif;
+					margin-left: 4px;
+				}
+			}
+		}
+	}
+
 	header {
 		p {
 			color: _palette(fg-light);
