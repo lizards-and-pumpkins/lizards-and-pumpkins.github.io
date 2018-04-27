@@ -16,7 +16,7 @@ Exported data is then sent to Lizards & Pumpkins via [API](/dev-docs/api/) for i
 
 ### Installation
 
-The most straightforward way to install Lizards & Pumpkins is via <a href="https://getcomposer.org/" target="_blank">composer</a>. Add following directives to your `composer.json` file:
+The most straightforward way to install Lizards & Pumpkins is via [composer](https://getcomposer.org/). Add following directives to your `composer.json` file:
 
 ```
 {
@@ -36,7 +36,7 @@ and run `composer update`. The `src/lizards-and-pumpkins/src` could be anything 
 
 ### Boilerplate
 
-The minimum code required for Lizards & Pumpkins to run is a `Util/Factory/ProjectFactory.php` file, however for a quicker start you may want to use our <a href="https://github.com/lizards-and-pumpkins/sample-project" target="_blank">boilerplate project</a>. Copy `src/` and `theme/` directories from `src/lizards-and-pumpkins/` to your project. Remember the arbitrary path in the previous section? Yes, it is it. There are lots of things which could be adjusted there but for now we can use it as is.
+The minimum code required for Lizards & Pumpkins to run is a `Util/Factory/ProjectFactory.php` file, however for a quicker start you may want to use our [boilerplate project](https://github.com/lizards-and-pumpkins/sample-project). Copy `src/` and `theme/` directories from `src/lizards-and-pumpkins/` to your project. Remember the arbitrary path in the previous section? Yes, it is it. There are lots of things which could be adjusted there but for now we can use it as is.
 
 ### Configuration
 
@@ -51,6 +51,8 @@ export LP_MEDIA_BASE_PATH="/var/www/shop/pub/media"
 export LP_FILE_STORAGE_BASE_PATH="/var/www/shop/file-storage"
 export LP_LOG_FILE_PATH="/var/www/shop/system.log"
 ```
+
+Note that your website URLs in  `LP_BASE_URL_TO_WEBSITE_MAP` are not limited to sub-directories but could also be sub-domain or completely different domains at all.
 
 After executing this you will be able to use Lizards & Pumpkins [CLI tool](/dev-docs/cli-tool/). For example running:
 
@@ -89,7 +91,7 @@ This will output all URL keys available in the system. If there's nothing you ma
 
 ### Front Controllers
 
-Let's say your shop already have a font controller, something like `pub/index.php`. Let's add more of them! If you are planning to use Lizards & Pumpkins [content delivery](/dev-docs/content-delivery/) to serve catalog pages you will need to add a new front controller. Let's create a `pub/index-lizards-and-pumpkins.php` with following contents:
+Let us assume your shop already has a font controller, something like `pub/index.php`. If you are planning to use Lizards & Pumpkins [content delivery](/dev-docs/content-delivery/) to serve catalog pages you will need to add a new one. Create a `pub/index-lizards-and-pumpkins.php` with following contents:
 
 ```
 <?php
@@ -107,9 +109,9 @@ $implementationSpecificFactory = new ProjectFactory();
 (new DefaultWebFront($request, $implementationSpecificFactory))->run();
 ```
 
-Note that depending on your directory structure you may need to adjust `vendor/autoload.php` path.
+Note that depending on your directory structure you may need to adjust the path to `vendor/autoload.php`.
 
-If you are planning to retrieve data from Lizards & Pumpkins [REST API](/dev-docs/api/) you will need to add a correspondent controller. Let's name it `pub/lizards-and-pumpkins-rest-api.php` and put the following content in:
+If you are planning to retrieve data from Lizards & Pumpkins [REST API](/dev-docs/api/) you will need to add a corresponding controller. Let's name it `pub/lizards-and-pumpkins-rest-api.php` and put the following content in:
 
 ```
 <?php
@@ -133,9 +135,9 @@ There is one single step left before Lizards & Pumpkins will be able to serve we
 
 ### Web Server
 
-Regardless of will you use Lizards & Pumpkins [content delivery](/dev-docs/content-delivery/) or only [REST API](/dev-docs/api/) to feed your application you need a web server. 
+Regardless whether you use Lizards & Pumpkins for [web page delivery](/dev-docs/content-delivery/) or only the [REST API](/dev-docs/api/) to feed your application, you need a web server. 
 
-First we need to add same variables for web server environment as we did for CLI. For Apache the following lines must be added to virtual host configuration:
+First we need to add the same variables for the web server environment as we did for the CLI. For Apache the following lines must be added to the virtual host configuration:
 
 ```
 SetEnv LP_BASE_URL_FR "http://example.loc/fr"
@@ -146,7 +148,7 @@ SetEnv LP_FILE_STORAGE_BASE_PATH /var/www/shop/file-storage
 SetEnv LP_LOG_FILE_PATH /var/www/shop/system.log
 ```
 
-same would be for NGINX with the only difference in syntax:
+For NGINX the same needs to be done with the only difference being the syntax:
 
 ```
 fastcgi_param LP_BASE_URL_FR "http://example.loc/fr";
@@ -157,7 +159,7 @@ fastcgi_param LP_FILE_STORAGE_BASE_PATH "/var/www/shop/file-storage";
 fastcgi_param LP_LOG_FILE_PATH "/var/www/shop/system.log";
 ```
 
-Then the rewriting rules must be added. For Apache the following lines must be added to `/` location. 
+Next rewriting rules must be added. For Apache the following they look like this: 
 
 ```
 <IfModule mod_rewrite.c>
@@ -207,7 +209,7 @@ vendor/bin/lp import:template -p product_listing
 vendor/bin/lp import:template -p product_detail_view
 ```
 
-Now for example `curl example.loc/sale` will return a listing page HTML with some products. Opening this in a browser will show some broken page as stylesheets, JavaScript files and images are missing. You can either copy them from a <a href="https://github.com/lizards-and-pumpkins/sample-project/tree/master/src/lizards-and-pumpkins/pub" target="_blank">boilerplate project</a> or start adopting the theme to your shop identity.
+Now for example `curl example.loc/sale` will return a listing page HTML with some products. Opening this in a browser will show some broken page as stylesheets, JavaScript files and images are missing. You can either copy them from a [boilerplate project](https://github.com/lizards-and-pumpkins/sample-project/tree/master/src/lizards-and-pumpkins/pub) or start adopting the theme to your shop identity.
 
 ### Next Steps
 
