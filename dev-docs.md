@@ -20,8 +20,9 @@ contents-link: false
     - [Solr](/dev-docs/search-enginge/solr/)
     - [Elasticsearch](/dev-docs/search-enginge/elasticsearch/)
 10. Queue
-    - [Filesystem](/dev-docs/queue/filesystem/)
+    - [Amazon SQS](/dev-docs/queue/amazon-sqs/)
     - [AMQP](/dev-docs/queue/amqp/)
+    - [Filesystem](/dev-docs/queue/filesystem/)
 11. Key/Value Store
     - [Filesystem](/dev-docs/key-value-store/filesystem/)
     - Redis
