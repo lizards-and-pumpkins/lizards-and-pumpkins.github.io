@@ -27,8 +27,8 @@ contents-link: false
     - [Filesystem](/dev-docs/key-value-store/filesystem/)
     - Redis
     - Memcached
-12. [Taxes](/dev-docs/taxes/)
-13. [Connectors](/dev-docs/connectors/)
-14. Contributing
+13. [CLI Tool](/dev-docs/cli-tool/)
+14. [Connectors](/dev-docs/connectors/)
+15. Contributing
     - [Committing Policy](/dev-docs/contributing/committing-policy/)
     - [Coding Standards](/dev-docs/contributing/coding-standards/)
