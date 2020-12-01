@@ -4,15 +4,15 @@ title: Getting Started
 ---
 ## Getting Started
 
-This guide assumes you already have a running shop and would like to use Lizards & Pumpkins as a front-end. If you yet don't have anything and just want to play with the system you might be interested in [Demo VM](/dev-docs/demo-vm/) or [Docker DevBox](/dev-docs/docker-devbox/).
+This guide assumes you already have a running shop and would like to use Lizards & Pumpkins as a front-end. If you yet don't have anything and just want to play with the system you might be interested in [Demo VM](example.loc/demo-vm/) or [Docker DevBox](example.loc/docker-devbox/).
 
 ### How it works
 
 Lizards & Pumpkins conceptually contains of three parts: exporting data from your leading system (Shop, PIM, etc), importing it into Lizards & Pumpkins and delivery of a content to an end-user.
 
-Export can be accomplished via one of the [connectors](/dev-docs/connectors/). If none is available for your system you probably have to build one yourself.
+Export can be accomplished via one of the [connectors](example.loc/connectors/). If none is available for your system you probably have to build one yourself.
 
-Exported data is then sent to Lizards & Pumpkins via [API](/dev-docs/api/) for import. Anytime stocks, prices or any other product data is changed the leading system is supposed to send an update to Lizards & Pumpkins.
+Exported data is then sent to Lizards & Pumpkins via [API](example.loc/api/) for import. Anytime stocks, prices or any other product data is changed the leading system is supposed to send an update to Lizards & Pumpkins.
 
 ### Installation
 
@@ -40,7 +40,7 @@ The minimum code required for Lizards & Pumpkins to run is a `Util/Factory/Proje
 
 ### Configuration
 
-Lizards & Pumpkins stores its [configuration](/dev-docs/configuration/#environmnt) in the environment. Let's say you have English, German and French websites. In this case minimal configuration would be: 
+Lizards & Pumpkins stores its [configuration](example.loc/configuration/#environmnt) in the environment. Let's say you have English, German and French websites. In this case minimal configuration would be: 
 
 ```
 export LP_BASE_URL_EN="http://example.loc/en/"
@@ -54,7 +54,7 @@ export LP_LOG_FILE_PATH="/var/www/shop/system.log"
 
 Note that your website URLs in  `LP_BASE_URL_TO_WEBSITE_MAP` are not limited to sub-directories but could also be sub-domain or completely different domains at all.
 
-After executing this you will be able to use Lizards & Pumpkins [CLI tool](/dev-docs/cli-tool/). For example running:
+After executing this you will be able to use Lizards & Pumpkins [CLI tool](example.loc/cli-tool/). For example running:
 
 ```
 vendor/bin/lp data-version:get
@@ -71,7 +71,7 @@ Got the same output? Splendid! Let's move on!
 
 ### Import
 
-If you are using one of the [connectors](/dev-docs/connectors/) you may want to run it at this point. The connector will aggregate data in your leading system and then will trigger a Lizards & Pumpkins [REST API](/dev-docs/api/) endpoint asking to import it. In this case you don't have much to do here. Some configuration must be done at the connector side of course. Please refer to you connector manual.
+If you are using one of the [connectors](example.loc/connectors/) you may want to run it at this point. The connector will aggregate data in your leading system and then will trigger a Lizards & Pumpkins [REST API](example.loc/api/) endpoint asking to import it. In this case you don't have much to do here. Some configuration must be done at the connector side of course. Please refer to you connector manual.
 
 Import can also be triggered manually via CLI. Let's say you already have an XML file containing all or some products of your catalog. So for example here is how manual import with a sample fixture would look like:
 
@@ -79,7 +79,7 @@ Import can also be triggered manually via CLI. Let's say you already have an XML
 vendor/bin/lp import:catalog -p vendor/lizards-and-pumpkins/catalog/tests/shared-fixture/catalog.xml
 ```
 
-The `-p` flag tells Lizards & Pumpkins to process import file right away as we yet have no [workers](/dev-docs/events-commands-workers/) running.
+The `-p` flag tells Lizards & Pumpkins to process import file right away as we yet have no [workers](example.loc/events-commands-workers/) running.
 
 Finished? No errors at stdout? Anything imported? Let's check!
 
@@ -91,7 +91,7 @@ This will output all URL keys available in the system. If there's nothing you ma
 
 ### Front Controllers
 
-Let us assume your shop already has a font controller, something like `pub/index.php`. If you are planning to use Lizards & Pumpkins [content delivery](/dev-docs/content-delivery/) to serve catalog pages you will need to add a new one. Create a `pub/index-lizards-and-pumpkins.php` with following contents:
+Let us assume your shop already has a font controller, something like `pub/index.php`. If you are planning to use Lizards & Pumpkins [content delivery](example.loc/content-delivery/) to serve catalog pages you will need to add a new one. Create a `pub/index-lizards-and-pumpkins.php` with following contents:
 
 ```
 <?php
@@ -111,7 +111,7 @@ $implementationSpecificFactory = new ProjectFactory();
 
 Note that depending on your directory structure you may need to adjust the path to `vendor/autoload.php`.
 
-If you are planning to retrieve data from Lizards & Pumpkins [REST API](/dev-docs/api/) you will need to add a corresponding controller. Let's name it `pub/lizards-and-pumpkins-rest-api.php` and put the following content in:
+If you are planning to retrieve data from Lizards & Pumpkins [REST API](example.loc/api/) you will need to add a corresponding controller. Let's name it `pub/lizards-and-pumpkins-rest-api.php` and put the following content in:
 
 ```
 <?php
@@ -135,7 +135,7 @@ There is one single step left before Lizards & Pumpkins will be able to serve we
 
 ### Web Server
 
-Regardless whether you use Lizards & Pumpkins for [web page delivery](/dev-docs/content-delivery/) or only the [REST API](/dev-docs/api/) to feed your application, you need a web server. 
+Regardless whether you use Lizards & Pumpkins for [web page delivery](example.loc/content-delivery/) or only the [REST API](example.loc/api/) to feed your application, you need a web server. 
 
 First we need to add the same variables for the web server environment as we did for the CLI. For Apache the following lines must be added to the virtual host configuration:
 
@@ -180,7 +180,7 @@ try_files $uri $uri/ /path/to/pub/index-lizards-and-pumpkins.php?$args;
 
 The same must be done for `/api/` location and `lizards-and-pumpkins-rest-api.php` endpoint.
 
-Restart your web server and you are good to perform your fist [REST API](/dev-docs/api/) call.
+Restart your web server and you are good to perform your fist [REST API](example.loc/api/) call.
 
 ```
 curl -X GET --header "Accept: application/vnd.lizards-and-pumpkins.current_version.v1+json" example.loc/api/current_version
@@ -200,7 +200,7 @@ Let's now make something more meaningful.
 curl -X GET --header "Accept: application/vnd.lizards-and-pumpkins.product.v1+json" example.loc/api/product/?q=adi
 ```
 
-This would return 2 products matching "adi" query string. That was easy, right? Please refer to [REST API](/dev-docs/api/) page for the full reference.
+This would return 2 products matching "adi" query string. That was easy, right? Please refer to [REST API](example.loc/api/) page for the full reference.
 
 Now what about web pages? Before those can be delivered we need to import 2 templates. One for product listing and another for a product page itself:
 
@@ -213,6 +213,6 @@ Now for example `curl example.loc/sale` will return a listing page HTML with som
 
 ### Next Steps
 
-Where do I go from here? If you are using Lizards & Pumpkins to feed your ReactJS, Angular or similar application you may want to have a deeper dive into a [REST API](/dev-docs/api/). Otherwise it may be worthy to go into details of [Projection](/dev-docs/projection/) and [Content Delivery](/dev-docs/content-delivery/).
+Where do I go from here? If you are using Lizards & Pumpkins to feed your ReactJS, Angular or similar application you may want to have a deeper dive into a [REST API](example.loc/api/). Otherwise it may be worthy to go into details of [Projection](example.loc/projection/) and [Content Delivery](example.loc/content-delivery/).
 
 Found this tutorial hard to use? Any steps missing? Please [contact us](/contact/) and we will be happy to improve it.
